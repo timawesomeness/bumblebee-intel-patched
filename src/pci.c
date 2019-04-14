@@ -105,7 +105,8 @@ struct pci_bus_id *pci_find_gfx_by_vendor(unsigned int vendor_id, unsigned int i
       if (pci_parse_bus_id(result, bus_id_numeric)) {
         int pci_class = pci_get_class(result);
         if (pci_class == PCI_CLASS_DISPLAY_VGA ||
-                pci_class == PCI_CLASS_DISPLAY_3D) {
+                pci_class == PCI_CLASS_DISPLAY_3D ||
+                pci_class == PCI_CLASS_DISPLAY_CTRLR) {
           /* yay, found device. Now get next, or clean up and return */
           if (idx--) {
             /* It's not yet our device */
